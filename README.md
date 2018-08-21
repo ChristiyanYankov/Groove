@@ -10,10 +10,10 @@
 
 ## Built With
 
-* [PHP]
-* [HTML]
-* [CSS]
-* [JavaScript]
-* [SQL]
+* **PHP**
+* **HTML**
+* **CSS**
+* **JavaScript**
+* **SQL**
 
 
