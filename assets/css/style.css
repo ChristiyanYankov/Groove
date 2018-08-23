@@ -1,0 +1,666 @@
+html, body{
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+body{
+	background-color: #181818;
+    background-image: linear-gradient(to bottom,  #845ec2, #000000 90%); 
+	font-size: 14px;
+	min-width: 720px;
+	background-attachment:fixed
+}
+
+* {
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+#nowPlayingBarContainer{
+	width: 100%;
+	background-color: #282828;
+	bottom: 0;
+	position: fixed;
+	min-width: 620px;
+}
+
+#nowPlayingBar{
+	display: flex;
+	height: 90px;
+	padding: 16px;
+	box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight{
+	width: 30%;
+	min-width: 180px;
+}
+
+#nowPlayingRight{
+	position: relative;
+	margin-top: 16px;
+}
+
+#nowPlayingCenter{
+	width: 40%;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#nowPlayingBar .content{
+	width: 100%;
+	height: 57px;
+}
+
+.playerControls .buttons{
+	margin: 0 auto;
+	display: table;
+
+}
+
+.controlButton {
+	background-color: transparent;
+	border: none;
+	vertical-align: middle;
+}
+
+.controlButton img{
+	width: 23px;
+	height: 23px;
+}
+
+.controlButton.play img,
+.controlButton.pause img{
+	width: 35px;
+	height: 35px;
+}
+
+.controlButton:hover{
+	cursor: pointer;
+}
+
+.progressTime{
+	color: #a0a0a0;
+	font-size: 11px;
+	min-width: 40px;
+	text-align: center;
+
+}
+
+.playbackBar{
+	display: flex;
+}
+
+.progressBar{
+	width: 100%;
+	height: 12px;
+	display: inline-flex;
+	cursor: pointer;
+}
+
+.progressBarBg{
+	background-color: #404040;
+	height: 4px;
+	width: 100%;
+	border-radius: 2px;
+}
+
+.progress{
+	/*background-color: #a0a0a0;*/
+	background-color: #00c9a7;
+	height: 4px;
+	width: 0;
+	border-radius: 2px;
+}
+
+.playbackBar .progressBar{
+	margin-top: 3px;
+}
+
+
+#nowPlayingLeft .albumArtwork{
+	height: 100%;
+	max-width: 57px;
+	margin-right: 15px;
+	float: left;
+	background-size: cover
+}
+
+.trackInfo{
+	display: table;
+}
+
+.trackInfo .trackName{
+	margin: 6px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.trackInfo .artistName span{
+	font-size: 15px;
+	color: #a0a0a0;
+}
+
+.volumeBar{
+	width: 180px;
+	position: absolute;
+	right: 0;
+}
+
+.volumeBar .progressBar{
+	width: 125px;
+}
+
+#topContainer{
+	min-height: 100%;
+	width: 100%;
+}
+
+#navBarContainer{
+	/*background-color: #000;*/
+	background-color:rgba(0, 0, 0, 0.5);
+
+	width: 220px;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.navBar{
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+	-ms-flex-direction: column;
+}
+
+.logo{
+	margin-bottom: 25px;
+	outline: none;
+	text-align: center;
+}
+
+.logo img{
+	width: 100px;
+	-webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    outline: none;
+    border: 0;
+
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.navBar .group{
+	border-top: 1px solid #a0a0a0;
+	padding: 10px 0;
+}
+
+.navItem{
+	padding: 10px 0;
+	font-size: 15px;
+	font-weight: 700;
+	display: block;
+	letter-spacing: 1px;
+	position: relative;
+}
+
+.navItemLink{
+	color: #a0a0a0;
+	text-decoration: none;
+}
+
+.navItemLink:hover{
+	/*color: #fff;*/
+	color: #00c9a7;
+	text-decoration: none;
+}
+
+/*#navUserItem{
+	position: fixed;
+	margin-top: 280px;
+	overflow: scroll;
+}*/
+
+#userIcon{
+	width: 21px;
+}
+
+.icon{
+	position: absolute;
+	right: 0;
+	top: 6px;
+	width: 25px;
+}
+
+#mainViewContainer{
+	margin-left: 220px;
+	padding-bottom: 90px;
+	width: calc(100% - 220px);
+}
+
+#mainContent{
+	padding: 0 20px;
+
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+
+}
+
+.pageHeadingBig{
+	padding: 20px;
+	text-align: center;
+}
+
+.gridViewItem{
+	display: inline-block;
+	margin-right: 20px;
+	width: 29%;
+	max-width: 200px;
+	min-width: 150px;
+	margin-bottom: 20px;
+
+	-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+}
+
+.gridViewItem img{
+	width: 100%;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.gridViewInfo{
+	font-weight: 300;
+	text-align: center;
+	padding: 5px 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;  
+}
+
+.gridViewItem a {
+	text-decoration: none;
+}
+
+.entityInfo{
+	padding: 40px 0 10px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.entityInfo .leftSection{
+	width: 30%;
+	float: left;
+	max-width: 300px;
+}
+
+.entityInfo .leftSection img{
+	width: 100%;
+}
+
+.entityInfo .rightSection{
+	width: 70%;
+	float: left;
+	padding: 5px 10px 5px 40px;
+	box-sizing: border-box; 
+}
+
+.entityInfo .rightSection h2{
+	margin-top: 0px;
+}
+
+.entityInfo .rightSection p{
+	color: #939393;
+	font-weight: 300;
+}
+
+.tracklist{
+	padding: 0;
+}
+
+.tracklistRow{
+	height: 40px;
+	padding: 15px 10px;
+	list-style: none;
+}
+
+.tracklistRow span{
+	color: #939393;
+	font-weight: 300;
+}
+
+.tracklistRow:hover{
+	/*background-color: #282828;*/
+	background-color: transparent;
+
+}
+
+.tracklistRow .trackCount{
+	width: 8%;
+	float: left;
+}
+
+.tracklistRow .trackCount img{
+	width: 20px;
+	visibility: hidden;
+	position: absolute;
+	cursor: pointer;
+}
+
+.tracklistRow:hover .trackCount img{
+	visibility: visible;
+}
+
+.tracklistRow .trackCount span{
+	visibility: visible;
+}
+
+.tracklistRow:hover .trackCount span{
+	visibility: hidden;
+}
+
+.tracklistRow .trackInfo{
+	width: 75%;
+	float: left;
+}
+
+.tracklistRow .trackInfo span{
+	display: block; 
+}
+
+.tracklistRow .trackOptions{
+	width: 5%;
+	float: left;
+	text-align: right;
+}
+
+.tracklistRow .trackOptions img{
+	/* Not final width*/
+	width: 40%;
+	visibility: hidden;
+}
+
+.tracklistRow .trackOptions img:hover{
+	cursor: pointer;
+}
+
+.tracklistRow:hover .trackOptions img{
+	visibility: visible;
+}
+
+.tracklistRow .trackDuration{
+	width: 12%;
+	float: left;
+	text-align: right;
+}
+
+.tracklistRow .trackInfo .trackName{
+	color: #fff;
+	margin-bottom: 7px;
+}
+
+.artistInfo{
+	text-align: center;
+}
+
+.button{
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 10px;
+	background-color: transparent;
+	font-weight: 500;
+	letter-spacing: 2px;
+	border: 2px solid #fff;
+	border-radius: 500px;
+	padding: 15px;
+	min-width: 130px;
+	transition: all .2s ease-in-out;
+}
+
+.button:hover{
+	transform: scale(1.1);
+}
+
+.button.green{
+	background-color: #00c9a7;
+	border-color: #00c9a7;
+
+	/*#00e6e6*/
+}
+
+
+.buttonItems .button{
+	display: block;
+	margin: 0 auto 20px auto;
+}
+
+.borderBottom{
+	border-bottom: 1px solid #939393;
+	margin-bottom: 20px;
+}
+
+.tracklistContainer h2,
+.gridViewContainer h2, 
+.artistContainer h2{
+	text-align: center;
+}
+
+[role="link"]{
+	cursor: pointer;
+}
+
+.searchContainer{
+	background-color: #242424;
+	opacity: 0.7;
+	padding: 20px 28px;
+}
+
+.searchContainer:hover{
+	opacity: 1;
+}
+
+.searchContainer h4{
+	margin: 0;
+	font-weight: 300px;
+}
+
+.searchContainer .searchInput{
+	width: 100%;
+	background-color: transparent;
+	border: none;
+	color: #fff;
+	font-weight: 700px;
+	font-size: 20px;
+}
+
+input:focus{
+	outline: none;
+}
+
+.searchResultRow{
+	padding: 15px 10px;
+}
+
+.searchResultRow:hover{
+	/*background-color: #282828;*/
+	background-color: transparent;
+	
+}
+
+
+.searchResultRow .artistName span{
+	color: #fff;
+}
+
+.noResults{
+	margin: 15px;
+	display: block;
+}
+
+.playlistsContainer{
+	padding: 10px 0; 
+}
+
+.playlistImage {
+	width: 200px;
+	border: 3px solid #282828;
+	padding: 10px;
+}
+
+.optionsMenu {
+	position: fixed;
+	background-color: #282828;
+	width: 200px;
+	border: 1px solid rgba(0,0,0,0.15);
+	border-radius: 3px;
+	z-index: 1000px;
+	display: none;
+}
+
+.optionsMenu .item {
+	width: 100%;
+	padding: 7px 20px;
+	box-sizing: border-box;
+	font-weight: 400;
+	color: rgba(147,147,147,0.8);
+
+	cursor: pointer; 
+	height: 50px;
+	background-color: #282828;
+	font-size: 13px;
+
+}
+
+.optionsMenu .item:hover{
+	color: #00c9a7;
+	background-color: #333;
+	border-color: #333;
+}
+
+.optionsMenu select{
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.userInfo h1{
+	text-align: center;
+}
+
+.userDetails{
+	padding: 20px;
+}
+
+.userDetails .container h2{
+	text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+	display: block;
+	margin: 16px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"]{
+	height: 50px;
+	width: 100%;
+	background: #1f1f1f;
+	border: none;
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0 20px;
+}
+
+.userDetails .container span{
+	color: #2ebd59;
+	font-weight: 300;
+}
+
+.userDetails .container input{
+	opacity: 0.5
+}
+.userDetails .container input:hover{
+	opacity: 1;
+}
+
+.recentlyPlayed{
+	font-size: 13px;
+	font-weight: 200;
+	color: #a0a0a0;
+}
+
+.recentTitle{
+	margin-top: 10px;
+}
+
+.recentTitle:hover{
+	cursor: pointer;
+	color: #00c9a7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
