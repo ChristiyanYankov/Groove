@@ -1,6 +1,8 @@
 # Groove
 
 
+![](https://github.com/ChristiyanYankov/groove/blob/master/screenshots/browseMain.png)
+
 **Groove** is a music streaming app where users can:
 * Sign up
 * Search for an artists, an album or a song in real time
