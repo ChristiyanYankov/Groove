@@ -15,7 +15,7 @@
 * **PHP**
 * **HTML**
 * **CSS**
-* **JavaScript**
+* **JavaScript (Jquery & AJAX)**
 * **SQL**
 
 
