@@ -10,12 +10,13 @@
 * Create and customize their own playlists
 * And much more!
 
-## Built With
+![](https://github.com/ChristiyanYankov/groove/blob/master/screenshots/login.png)
 
+## Built With
+* **JavaScript (Jquery & AJAX)**
 * **PHP**
 * **HTML**
 * **CSS**
-* **JavaScript (Jquery & AJAX)**
 * **SQL**
 
 
